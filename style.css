@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --active-color: #527ccd;
+  --secondary-color: #ccddff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--active-color);
+  background: #f3f3f3;
+}
+
+/* Контейнер с ограниченными размерами, он будет выполнять роль "окна" */
+.container {
+  max-width: 1487px;
+  margin: 0 auto;
+  padding: 0;
+  /* width: 600px;
+  height: 600px; */
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.header {
+  margin: 120px auto 40px;
+}
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 50px;
+}
+.header__attribute {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+}
+.lines {
+  display: flex;
+  align-items: center;
+}
+.line {
+  border: 1px solid var(--secondary-color);
+  width: 60px;
+  height: 0px;
+}
+.line_active {
+  border: 1px solid var(--active-color);
+}
+.arrows {
+  display: flex;
+}
+.arrow-left {
+  cursor: pointer;
+  background: url('img/arrows/arrow-left.png');
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
+}
+.arrow-bg {
+}
+.arrow {
+}
+.arrow-right {
+  cursor: pointer;
+
+  background: url('img/arrows/arrow-right.png');
+  width: 60px;
+  height: 60px;
+}
+
+/* Лента с фото, имеет неограниченную ширину и тип flex, чтобы картинки не переносились */
+.slider-track {
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition-duration: 0.5s;
+}
+
+.slider-item {
+  width: 260px;
+  height: 420px;
+  border: 1px solid var(--secondary-color);
+}
+.slider-item > img {
+  width: 220px;
+  height: 160px;
+}
+.slider__wrapper {
+  margin: 20px 20px 10px;
+}
+.date {
+  font-weight: 400;
+  font-size: 12px;
+}
+.slider__title {
+  font-weight: 400;
+  font-size: 16px;
+  padding-top: 10px;
+  line-height: 26px;
+}
+.slider__description {
+  font-size: 12px;
+  padding-top: 10px;
+  line-height: 22px;
+}
