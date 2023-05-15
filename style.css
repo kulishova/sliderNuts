@@ -3,6 +3,16 @@
 :root {
   --active-color: #527ccd;
   --secondary-color: #ccddff;
+
+  /* Размеры под адптив */
+  --desktop: 1000px;
+  --notebook: 992px;
+  --tablet: 768px;
+  --mobile: 480px;
+  --mobile_small: 90%;
+
+  --contentWidth: var(--desktop);
+  --padding: 15px;
 }
 
 * {
@@ -13,19 +23,9 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
   color: var(--active-color);
   background: #f3f3f3;
-}
-
-/* Контейнер с ограниченными размерами, он будет выполнять роль "окна" */
-.container {
-  max-width: 1487px;
-  margin: 0 auto;
-  padding: 0;
-  /* width: 600px;
-  height: 600px; */
-  position: relative;
-  /* overflow: hidden; */
 }
 
 .header {
@@ -35,15 +35,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 calc(40% - var(--contentWidth) / 2);
 }
 .header__title {
-  font-size: 50px;
+  font-size: 3rem;
 }
 .header__attribute {
   display: flex;
   width: 500px;
   justify-content: space-between;
 }
+
+/* Оформление элементов страницы */
 .lines {
   display: flex;
   align-items: center;
@@ -58,50 +61,89 @@ body {
 }
 .arrows {
   display: flex;
+  justify-content: space-between;
 }
 .arrow-left {
   cursor: pointer;
   background: url('img/arrows/arrow-left.png');
   width: 60px;
   height: 60px;
-  margin-right: 40px;
-}
-.arrow-bg {
-}
-.arrow {
 }
 .arrow-right {
   cursor: pointer;
-
   background: url('img/arrows/arrow-right.png');
   width: 60px;
   height: 60px;
 }
+.arrow-left_active {
+  cursor: pointer;
+  background: url('img/arrows/arrow-left-active.png');
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
+}
+.arrow-right_active {
+  cursor: pointer;
+  background: url('img/arrows/arrow-right-active.png');
+  width: 60px;
+  height: 60px;
+}
+/* Оформление для футера на адаптив */
+.footer__attribute {
+  display: none;
+  width: 500px;
+  justify-content: space-between;
+}
+.footer__arrows {
+  display: flex;
+  justify-content: space-between;
+}
 
-/* Лента с фото, имеет неограниченную ширину и тип flex, чтобы картинки не переносились */
-.slider-track {
-  height: 600px;
+.footer__lines {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  transition-duration: 0.5s;
+}
+.footer__line {
+  border: 1px solid var(--secondary-color);
+  width: 22px;
+  height: 0px;
 }
 
-.slider-item {
-  width: 260px;
-  height: 420px;
-  border: 1px solid var(--secondary-color);
-}
-.slider-item > img {
-  width: 220px;
-  height: 160px;
+/* Слайдер */
+.slider-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  height: 600px;
+  transition-duration: 0.5s;
+  margin: 0 calc(40% - var(--contentWidth) / 2);
+  place-items: center;
 }
 .slider__wrapper {
-  margin: 20px 20px 10px;
+  margin: 5%;
 }
+.slider-item {
+  max-width: 260px;
+  min-height: 420px;
+  border: 1px solid var(--secondary-color);
+}
+.slider-item_active {
+  border: 1px solid var(--active-color);
+}
+img {
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+.img__wrapper {
+  display: flex;
+  position: relative;
+}
+
 .date {
   font-weight: 400;
   font-size: 12px;
+  margin-top: 10px;
 }
 .slider__title {
   font-weight: 400;
@@ -113,4 +155,65 @@ body {
   font-size: 12px;
   padding-top: 10px;
   line-height: 22px;
+}
+
+/* Адаптив  */
+@media (max-width: 1000px) {
+  :root {
+    --contentWidth: var(--notebook);
+  }
+}
+@media (max-width: 992px) {
+  :root {
+    --contentWidth: var(--tablet);
+  }
+  .lines {
+    display: none;
+  }
+  .arrows {
+    display: none;
+  }
+  .slider-track {
+    grid-template-columns: repeat(3, 1fr);
+    align-content: start;
+  }
+  .header__wrapper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --contentWidth: var(--mobile);
+  }
+  .lines {
+    display: none;
+  }
+  .arrows {
+    display: none;
+  }
+  .slider-track {
+    grid-template-columns: repeat(2, 1fr);
+    align-content: start;
+  }
+  .header__wrapper {
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --contentWidth: var(--mobile_small);
+  }
+  .lines {
+    display: none;
+  }
+  .arrows {
+    display: none;
+  }
+  .slider-track {
+    grid-template-columns: 1fr;
+    align-content: start;
+  }
+  .header__wrapper {
+    flex-direction: column;
+  }
 }
