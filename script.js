@@ -10,8 +10,7 @@ const sliderItem = document.querySelectorAll('.slider-item'),
 let sliderCount = 0,
   sliderWidth
 
-// Адаптивность
-window.addEventListener('resize', showSlide)
+// Элементы клика
 
 arrowLeft.addEventListener('click', prevSlide)
 arrowRight.addEventListener('click', nextSlide)
@@ -50,4 +49,18 @@ function thisSlide(index) {
   sliderLine[index].classList.add('line_active')
   sliderItem.forEach((item) => item.classList.remove('slider-item_active'))
   sliderItem[index].classList.add('slider-item_active')
+}
+
+// Клик на line
+sliderLine.forEach((line, index) => {
+  line.addEventListener('click', () => {
+    sliderCount = index
+    thisSlide(sliderCount)
+  })
+})
+
+// Поведение для экранов < 1200 px
+
+if (document.documentElement.clientWidth <= 1200) {
+  document.querySelector('.footer').style.display = 'block'
 }

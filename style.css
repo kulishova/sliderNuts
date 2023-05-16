@@ -75,14 +75,14 @@ body {
   width: 60px;
   height: 60px;
 }
-.arrow-left_active {
+.arrow-left:hover {
   cursor: pointer;
   background: url('img/arrows/arrow-left-active.png');
   width: 60px;
   height: 60px;
-  margin-right: 40px;
 }
-.arrow-right_active {
+
+.arrow-right:hover {
   cursor: pointer;
   background: url('img/arrows/arrow-right-active.png');
   width: 60px;
@@ -90,7 +90,7 @@ body {
 }
 /* Оформление для футера на адаптив */
 .footer {
-  display: none;
+  /* display: none; */
   margin: 0 calc(60% - var(--contentWidth) / 2);
 }
 .footer__attribute {
@@ -121,7 +121,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
-  height: 600px;
+  height: 460px;
   transition-duration: 0.5s;
   margin: 0 calc(40% - var(--contentWidth) / 2);
   place-items: center;
@@ -171,6 +171,9 @@ img {
   :root {
     --contentWidth: var(--notebook);
   }
+  .header {
+    margin: 15% auto -9px;
+  }
   .lines {
     display: none;
   }
@@ -181,12 +184,6 @@ img {
 @media (max-width: 992px) {
   :root {
     --contentWidth: var(--tablet);
-  }
-  .lines {
-    display: none;
-  }
-  .arrows {
-    display: none;
   }
   .slider-track {
     grid-template-columns: repeat(3, 1fr);
@@ -200,12 +197,6 @@ img {
   :root {
     --contentWidth: var(--mobile);
   }
-  .lines {
-    display: none;
-  }
-  .arrows {
-    display: none;
-  }
   .slider-track {
     grid-template-columns: repeat(2, 1fr);
     align-content: start;
@@ -217,12 +208,6 @@ img {
 @media (max-width: 480px) {
   :root {
     --contentWidth: var(--mobile_small);
-  }
-  .lines {
-    display: none;
-  }
-  .arrows {
-    display: none;
   }
   .slider-track {
     grid-template-columns: 1fr;
