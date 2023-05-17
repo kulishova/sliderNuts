@@ -29,7 +29,7 @@ body {
 }
 
 .header {
-  margin: 120px auto 40px;
+  margin: 6% auto 3%;
 }
 .header__wrapper {
   display: flex;
@@ -52,6 +52,7 @@ body {
   align-items: center;
 }
 .line {
+  cursor: pointer;
   border: 1px solid var(--secondary-color);
   width: 60px;
   height: 0px;
@@ -92,11 +93,12 @@ body {
 .footer {
   /* display: none; */
   margin: 0 calc(60% - var(--contentWidth) / 2);
+  margin-top: 10%;
 }
 .footer__attribute {
   /* display: none; */
   /* width: 100vw; */
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .footer__arrows {
   display: flex;
@@ -171,24 +173,61 @@ img {
   :root {
     --contentWidth: var(--notebook);
   }
-  .header {
-    margin: 15% auto -9px;
+  .slider-track {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    justify-content: flex-start;
+    margin: 0;
   }
+  .slider-item {
+    min-width: 250px;
+    max-height: 400px;
+  }
+
   .lines {
     display: none;
   }
   .arrows {
     display: none;
   }
+  .arrow-left {
+    display: none;
+  }
+  .arrow-right {
+    display: none;
+  }
+  .footer__arrow-left {
+    cursor: pointer;
+    background: url('img/arrows/arrow-left.png');
+    width: 60px;
+    height: 60px;
+  }
+  .footer__arrow-right {
+    cursor: pointer;
+    background: url('img/arrows/arrow-right.png');
+    width: 60px;
+    height: 60px;
+  }
+  .footer__arrow-left:hover {
+    cursor: pointer;
+    background: url('img/arrows/arrow-left-active.png');
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer__arrow-right:hover {
+    cursor: pointer;
+    background: url('img/arrows/arrow-right-active.png');
+    width: 60px;
+    height: 60px;
+  }
 }
 @media (max-width: 992px) {
   :root {
     --contentWidth: var(--tablet);
   }
-  .slider-track {
-    grid-template-columns: repeat(3, 1fr);
-    align-content: start;
-  }
+
   .header__wrapper {
     flex-direction: column;
   }
@@ -197,23 +236,14 @@ img {
   :root {
     --contentWidth: var(--mobile);
   }
-  .slider-track {
-    grid-template-columns: repeat(2, 1fr);
-    align-content: start;
-  }
-  .header__wrapper {
-    flex-direction: column;
-  }
 }
 @media (max-width: 480px) {
   :root {
     --contentWidth: var(--mobile_small);
   }
   .slider-track {
+    display: grid;
     grid-template-columns: 1fr;
     align-content: start;
-  }
-  .header__wrapper {
-    flex-direction: column;
   }
 }

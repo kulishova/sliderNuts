@@ -15,9 +15,9 @@ let sliderCount = 0,
 arrowLeft.addEventListener('click', prevSlide)
 arrowRight.addEventListener('click', nextSlide)
 
-setInterval(() => {
-  nextSlide()
-}, 4000)
+// setInterval(() => {
+//   nextSlide()
+// }, 4000)
 
 // Задаем нужный размер карточке
 function showSlide() {
