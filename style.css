@@ -95,18 +95,14 @@ body {
   margin: 0 calc(60% - var(--contentWidth) / 2);
   margin-top: 10%;
 }
-.footer__attribute {
-  /* display: none; */
-  /* width: 100vw; */
-  /* justify-content: space-between; */
-}
+
 .footer__arrows {
   display: flex;
   justify-content: space-between;
 }
 
 .footer__lines {
-  display: flex;
+  display: none;
   align-items: center;
 }
 .footer__line {
@@ -134,7 +130,7 @@ body {
   margin: 5%;
 }
 .slider-item {
-  max-width: 260px;
+  min-width: 260px;
   min-height: 420px;
   border: 1px solid var(--secondary-color);
 }
@@ -173,18 +169,7 @@ img {
   :root {
     --contentWidth: var(--notebook);
   }
-  .slider-track {
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    justify-content: flex-start;
-    margin: 0;
-  }
-  .slider-item {
-    min-width: 250px;
-    max-height: 400px;
-  }
-
+  /* Скрываемые элементы */
   .lines {
     display: none;
   }
@@ -197,6 +182,8 @@ img {
   .arrow-right {
     display: none;
   }
+
+  /* Оформление элементов адаптива */
   .footer__arrow-left {
     cursor: pointer;
     background: url('img/arrows/arrow-left.png');
@@ -209,25 +196,52 @@ img {
     width: 60px;
     height: 60px;
   }
-  .footer__arrow-left:hover {
+  .footer__arrow-left_active {
     cursor: pointer;
     background: url('img/arrows/arrow-left-active.png');
     width: 60px;
     height: 60px;
   }
 
-  .footer__arrow-right:hover {
+  .footer__arrow-right-active {
     cursor: pointer;
     background: url('img/arrows/arrow-right-active.png');
     width: 60px;
     height: 60px;
+  }
+  .footer__lines {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Изменение позиции на адптиве */
+  .slider-track {
+    position: relative;
+    margin: auto;
+    height: 460px;
+    max-width: 85%;
+  }
+  .slider-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+  }
+  .showing {
+    opacity: 1;
+    z-index: 2;
   }
 }
 @media (max-width: 992px) {
   :root {
     --contentWidth: var(--tablet);
   }
-
+  .slider-track {
+    max-width: 47%;
+  }
   .header__wrapper {
     flex-direction: column;
   }
@@ -237,6 +251,7 @@ img {
     --contentWidth: var(--mobile);
   }
 }
+
 @media (max-width: 480px) {
   :root {
     --contentWidth: var(--mobile_small);
@@ -245,5 +260,6 @@ img {
     display: grid;
     grid-template-columns: 1fr;
     align-content: start;
+    max-width: 85%;
   }
 }
